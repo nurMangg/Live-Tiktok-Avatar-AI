@@ -16,35 +16,28 @@ Aplikasi ini dirancang khusus untuk membantu Anda **jualan produk di TikTok Shop
 - **Stock tracking** real-time
 - **Script templates** khusus jualan produk
 
-### 2. 📊 Sales Analytics
-- **Tracking pesanan** real-time
-- **Total revenue** live session
-- **Notifikasi order** otomatis
-- **Sales statistics** per produk
-- **Order confirmation** auto-response
-
-### 3. 🤖 AI Avatar
+### 2. 🤖 AI Avatar
 - Pilihan berbagai avatar (Default, Female, Male, Custom)
 - Upload avatar custom (gambar atau video)
 - Animasi gesture dan lip-sync otomatis
 - Kontrol intensitas gesture
 - **Auto product pitch** setiap 5 menit
 
-### 4. 🎤 Voice & Speech
+### 3. 🎤 Voice & Speech
 - Multiple voice types (Female/Male voices)
 - Kontrol kecepatan bicara (0.5x - 2x)
 - Kontrol pitch (-10 hingga +10)
 - Text-to-speech integration
 - **Product pitch templates** siap pakai
 
-### 5. 📡 Live Streaming
+### 4. 📡 Live Streaming
 - Integrasi langsung dengan TikTok
 - Kualitas stream HD (480p - 1080p)
 - Kontrol bitrate dan FPS
 - Background blur/custom
 - Screen sharing support
 
-### 6. 💬 Chat & Interaksi
+### 5. 💬 Chat & Interaksi
 - Live chat real-time
 - Auto greeting untuk viewer baru
 - Auto thank you untuk gifts
@@ -52,7 +45,7 @@ Aplikasi ini dirancang khusus untuk membantu Anda **jualan produk di TikTok Shop
 - Chat moderation otomatis
 - Script queue system
 
-### 7. 📈 Analytics
+### 6. 📈 Analytics
 - Viewer count real-time
 - Like counter
 - Comment counter
@@ -230,21 +223,6 @@ Edit `avatar_server.py` untuk mengintegrasikan TTS provider pilihan.
 - Simpan API keys dengan aman
 - Validasi semua input user
 
-## 📱 Browser Support
-
-- Chrome 90+ ✅
-- Firefox 88+ ✅
-- Safari 14+ ✅
-- Edge 90+ ✅
-
-## 🤝 Contributing
-
-Kontribusi selalu welcome! Silakan:
-1. Fork repository
-2. Buat feature branch
-3. Commit changes
-4. Push ke branch
-5. Submit pull request
 
 ## 🛍️ Panduan Khusus Live Shopping
 
@@ -265,30 +243,3 @@ Untuk panduan lengkap jualan produk, baca:
 ## 📄 License
 
 MIT License - Feel free to use for personal and commercial projects
-
-## 👨‍💻 Developer
-
-Dibuat dengan ❤️ untuk komunitas live shopping & streaming Indonesia
-
-## 🆘 Support
-
-Jika ada pertanyaan atau butuh bantuan:
-- Baca [LIVE_SHOPPING_GUIDE.md](LIVE_SHOPPING_GUIDE.md) untuk panduan jualan
-- Baca [TUTORIAL.md](TUTORIAL.md) untuk tutorial teknis
-- Open issue di GitHub
-- Email: support@example.com
-
-## 🎉 Credits
-
-- TikTok API & TikTok Shop
-- Socket.IO
-- OpenCV
-- Flask
-- Express.js
-
----
-
-**Happy Selling! 🛍️💰**
-
-*Tingkatkan omzet live shopping Anda dengan AI Avatar!*
-
