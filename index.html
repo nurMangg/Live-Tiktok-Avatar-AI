@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Live Streaming - AI Avatar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fab fa-tiktok"></i>
+                <h1>TikTok Live AI</h1>
+            </div>
+            <div class="user-info">
+                <button class="btn-primary" id="connectTikTok">
+                    <i class="fas fa-plug"></i> Hubungkan TikTok
+                </button>
+                <div class="user-profile" id="userProfile" style="display: none;">
+                    <img src="" alt="User" id="userAvatar">
+                    <span id="username"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel - Controls -->
+            <aside class="control-panel">
+                <div class="panel-section">
+                    <h3><i class="fas fa-robot"></i> AI Avatar</h3>
+                    <div class="avatar-selector">
+                        <div class="avatar-grid">
+                            <div class="avatar-card active" data-avatar="default">
+                                <img src="https://i.pravatar.cc/150?img=1" alt="Avatar 1">
+                                <span>Default</span>
+                            </div>
+                            <div class="avatar-card" data-avatar="female">
+                                <img src="https://i.pravatar.cc/150?img=5" alt="Avatar 2">
+                                <span>Female</span>
+                            </div>
+                            <div class="avatar-card" data-avatar="male">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="Avatar 3">
+                                <span>Male</span>
+                            </div>
+                            <div class="avatar-card" data-avatar="custom">
+                                <div class="upload-placeholder">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Upload</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-sliders-h"></i> Pengaturan Avatar</h3>
+                    <div class="control-group">
+                        <label>Voice Type</label>
+                        <select id="voiceType">
+                            <option value="female-1">Female Voice 1</option>
+                            <option value="female-2">Female Voice 2</option>
+                            <option value="male-1">Male Voice 1</option>
+                            <option value="male-2">Male Voice 2</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Kecepatan Bicara</label>
+                        <input type="range" id="speechSpeed" min="0.5" max="2" step="0.1" value="1">
+                        <span class="value-display">1.0x</span>
+                    </div>
+                    <div class="control-group">
+                        <label>Pitch</label>
+                        <input type="range" id="pitch" min="-10" max="10" step="1" value="0">
+                        <span class="value-display">0</span>
+                    </div>
+                    <div class="control-group">
+                        <label>Gesture Intensity</label>
+                        <input type="range" id="gestureIntensity" min="0" max="100" step="5" value="50">
+                        <span class="value-display">50%</span>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-shopping-bag"></i> Produk Live</h3>
+                    <div class="product-showcase" id="productShowcase">
+                        <div class="product-empty">Tambah produk untuk ditampilkan</div>
+                    </div>
+                    <button class="btn-secondary" id="addProduct">
+                        <i class="fas fa-plus"></i> Tambah Produk
+                    </button>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-comment-dots"></i> Script & Pitch Produk</h3>
+                    <div class="control-group">
+                        <label>Template Script</label>
+                        <select id="scriptTemplate">
+                            <option value="">-- Pilih Template --</option>
+                            <option value="opening">Opening Live</option>
+                            <option value="product_intro">Intro Produk</option>
+                            <option value="benefits">Keunggulan Produk</option>
+                            <option value="price">Penawaran Harga</option>
+                            <option value="testimonial">Testimonial</option>
+                            <option value="closing">Closing & CTA</option>
+                            <option value="promo">Flash Sale</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <textarea id="scriptInput" placeholder="Masukkan script atau edit template..."></textarea>
+                    </div>
+                    <button class="btn-secondary" id="addToQueue">
+                        <i class="fas fa-plus"></i> Tambah ke Queue
+                    </button>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-list"></i> Script Queue</h3>
+                    <div class="queue-list" id="queueList">
+                        <div class="queue-empty">Belum ada script di queue</div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center - Video Preview -->
+            <main class="video-section">
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video id="avatarVideo" autoplay muted></video>
+                        <canvas id="avatarCanvas"></canvas>
+                        <div class="status-overlay" id="statusOverlay">
+                            <i class="fas fa-user-circle fa-spin"></i>
+                            <p>Loading Realistic Human Avatar...</p>
+                            <small>Menggunakan foto orang asli untuk tampilan realistis</small>
+                        </div>
+                    </div>
+                    
+                    <div class="video-controls">
+                        <button class="btn-control" id="toggleCamera" title="Kamera (OFF)">
+                            <i class="fas fa-video-slash"></i>
+                        </button>
+                        <button class="btn-control" id="toggleMic" title="Mikrofon">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="btn-control active" id="toggleAvatar" title="Realistic Avatar (ON)">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <button class="btn-control" id="shareScreen" title="Share Screen">
+                            <i class="fas fa-desktop"></i>
+                        </button>
+                        <div class="spacer"></div>
+                        <button class="btn-start" id="startStream">
+                            <i class="fas fa-play"></i> Mulai Streaming
+                        </button>
+                        <button class="btn-stop" id="stopStream" style="display: none;">
+                            <i class="fas fa-stop"></i> Stop Streaming
+                        </button>
+                    </div>
+
+                    <div class="stream-stats" id="streamStats">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span id="viewerCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-heart"></i>
+                            <span id="likeCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comment"></i>
+                            <span id="commentCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="duration">00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-settings">
+                    <h3>Pengaturan Stream</h3>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <label>Kualitas</label>
+                            <select id="streamQuality">
+                                <option value="1080p">1080p Full HD</option>
+                                <option value="720p" selected>720p HD</option>
+                                <option value="480p">480p SD</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Bitrate</label>
+                            <select id="bitrate">
+                                <option value="4000">4000 kbps</option>
+                                <option value="2500" selected>2500 kbps</option>
+                                <option value="1500">1500 kbps</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>FPS</label>
+                            <select id="fps">
+                                <option value="60">60 FPS</option>
+                                <option value="30" selected>30 FPS</option>
+                                <option value="24">24 FPS</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Background</label>
+                            <select id="background">
+                                <option value="blur">Blur</option>
+                                <option value="custom">Custom Image</option>
+                                <option value="none" selected>None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Panel - Live Chat & Sales -->
+            <aside class="chat-panel">
+                <div class="panel-section">
+                    <h3><i class="fas fa-chart-line"></i> Statistik Penjualan</h3>
+                    <div class="sales-stats">
+                        <div class="sales-stat-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div>
+                                <span class="stat-value" id="ordersCount">0</span>
+                                <span class="stat-label">Pesanan</span>
+                            </div>
+                        </div>
+                        <div class="sales-stat-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div>
+                                <span class="stat-value" id="totalRevenue">Rp 0</span>
+                                <span class="stat-label">Total</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-comments"></i> Live Chat</h3>
+                    <div class="chat-container" id="chatContainer">
+                        <div class="chat-empty">Belum ada chat</div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chatInput" placeholder="Balas chat...">
+                        <button id="sendChat"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-bell"></i> Notifikasi Order</h3>
+                    <div class="orders-list" id="ordersList">
+                        <div class="orders-empty">Belum ada pesanan</div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-gift"></i> Gifts & Donations</h3>
+                    <div class="gifts-list" id="giftsList">
+                        <div class="gift-empty">Belum ada gift</div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-cog"></i> Auto Response</h3>
+                    <div class="control-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="autoGreeting">
+                            <span>Sapa viewer baru</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="autoThankGift">
+                            <span>Ucapkan terima kasih untuk gift</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="autoProductPitch">
+                            <span>Pitch produk otomatis setiap 5 menit</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="autoOrderConfirm">
+                            <span>Konfirmasi order otomatis</span>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Modal for Custom Avatar Upload -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('uploadModal')">&times;</span>
+            <h2>Upload Custom Avatar</h2>
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Drag & drop image atau video</p>
+                <input type="file" id="avatarUpload" accept="image/*,video/*">
+                <button class="btn-primary">Pilih File</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Add Product -->
+    <div class="modal" id="productModal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeModal('productModal')">&times;</span>
+            <h2>Tambah Produk Live</h2>
+            <form id="productForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nama Produk *</label>
+                        <input type="text" id="productName" required placeholder="Contoh: Serum Wajah Glowing">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Gambar Produk *</label>
+                        <input type="file" id="productImage" accept="image/*" required>
+                        <div class="image-preview" id="imagePreview"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Harga Normal</label>
+                        <input type="number" id="productPrice" placeholder="299000">
+                    </div>
+                    <div class="form-group">
+                        <label>Harga Promo *</label>
+                        <input type="number" id="productPromoPrice" required placeholder="199000">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Stok Tersedia *</label>
+                        <input type="number" id="productStock" required placeholder="100">
+                    </div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <select id="productCategory">
+                            <option value="skincare">Skincare</option>
+                            <option value="makeup">Makeup</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="food">Food & Beverage</option>
+                            <option value="other">Lainnya</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label>Deskripsi Singkat</label>
+                        <textarea id="productDescription" rows="3" placeholder="Deskripsi produk..."></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="flashSale">
+                            <span>Flash Sale / Limited Time</span>
+                        </label>
+                    </div>
+                    <div class="form-group" id="flashSaleTime" style="display: none;">
+                        <label>Durasi (menit)</label>
+                        <input type="number" id="saleDuration" placeholder="10">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('productModal')">Batal</button>
+                    <button type="submit" class="btn-primary">Tambah Produk</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Display Overlay (on video) -->
+    <div id="productOverlay" class="product-overlay" style="display: none;">
+        <div class="product-card-overlay">
+            <img id="overlayProductImage" src="" alt="">
+            <div class="overlay-product-info">
+                <h3 id="overlayProductName"></h3>
+                <div class="overlay-price">
+                    <span class="old-price" id="overlayOldPrice"></span>
+                    <span class="new-price" id="overlayNewPrice"></span>
+                    <span class="discount" id="overlayDiscount"></span>
+                </div>
+                <div class="overlay-stock">
+                    <i class="fas fa-box"></i>
+                    <span>Stok: <strong id="overlayStock"></strong></span>
+                </div>
+                <div class="overlay-timer" id="overlayTimer" style="display: none;">
+                    <i class="fas fa-clock"></i>
+                    <span id="timerDisplay">10:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script src="products.js"></script>
+    <script src="app.js"></script>
+    <script>
+    // Global helper function for closing modals
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.remove('active');
+    }
+    </script>
+</body>
+</html>
+

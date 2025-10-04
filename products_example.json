@@ -1,0 +1,178 @@
+[
+  {
+    "name": "Serum Wajah Glowing Premium - Hasil 7 Hari",
+    "price": 299000,
+    "promoPrice": 149000,
+    "stock": 100,
+    "category": "skincare",
+    "description": "Formula Korea, BPOM, hasil terlihat dalam 7 hari, cocok semua jenis kulit, non-comedogenic",
+    "benefits": [
+      "Mencerahkan wajah",
+      "Menghilangkan flek hitam",
+      "Melembabkan intensif",
+      "Mengecilkan pori-pori",
+      "Anti-aging"
+    ],
+    "isFlashSale": true,
+    "saleDuration": 10,
+    "script_suggestion": "Guys, ini serum andalan aku! 7 hari pemakaian wajah langsung glowing. Formula dari Korea, sudah BPOM, aman untuk semua jenis kulit. Harga normalnya 299ribu, tapi khusus live hari ini cuma 149ribu! Diskon 50%! Flash sale 10 menit ya!"
+  },
+  {
+    "name": "Lipstick Matte Long Lasting - 12 Hours",
+    "price": 149000,
+    "promoPrice": 79000,
+    "stock": 200,
+    "category": "makeup",
+    "description": "Waterproof, transfer-proof, tidak crack, 20 pilihan warna, vitamin E",
+    "benefits": [
+      "Tahan 12 jam",
+      "Tidak mudah luntur",
+      "Melembabkan bibir",
+      "Warna pigmented",
+      "Mudah di-apply"
+    ],
+    "isFlashSale": false,
+    "script_suggestion": "Lipstick favorit aku nih! Matte tapi nggak bikin bibir kering. Tahan sampai 12 jam, makan minum tetep stay. Ada 20 warna cantik. Harga normal 149ribu, sekarang cuma 79ribu!"
+  },
+  {
+    "name": "Cream Pemutih Badan Instan - White & Smooth",
+    "price": 199000,
+    "promoPrice": 99000,
+    "stock": 150,
+    "category": "skincare",
+    "description": "Memutihkan 3x lebih cepat, mengangkat sel kulit mati, SPF 30, aroma therapy",
+    "benefits": [
+      "Memutihkan kulit badan",
+      "Menghaluskan kulit",
+      "Melindungi dari UV",
+      "Melembabkan 24 jam",
+      "Aromaterapi relaksasi"
+    ],
+    "isFlashSale": true,
+    "saleDuration": 15,
+    "script_suggestion": "Kalian mau kulit putih dan halus? Ini solusinya! Cream pemutih yang hasilnya cepat banget. Ada SPF 30 juga jadi kulit terlindungi. Normalnya 199ribu, sekarang flash sale cuma 99ribu! 15 menit aja!"
+  },
+  {
+    "name": "Masker Wajah Jerawat - Tea Tree & Charcoal",
+    "price": 89000,
+    "promoPrice": 49000,
+    "stock": 300,
+    "category": "skincare",
+    "description": "Menghilangkan jerawat 5 hari, mengontrol minyak, pori-pori bersih, untuk kulit berjerawat",
+    "benefits": [
+      "Mengatasi jerawat",
+      "Mengontrol sebum",
+      "Membersihkan komedo",
+      "Menenangkan kulit",
+      "Hasil cepat"
+    ],
+    "isFlashSale": false,
+    "script_suggestion": "Punya masalah jerawat? Wajib banget punya ini! Masker tea tree dan charcoal yang powerful banget. 5 hari pemakaian jerawat langsung kempes. Harga cuma 49ribu guys!"
+  },
+  {
+    "name": "Parfum Premium Unisex - Long Lasting 24H",
+    "price": 349000,
+    "promoPrice": 199000,
+    "stock": 80,
+    "category": "other",
+    "description": "Inspired by branded perfume, tahan 24 jam, aroma mewah, travel size included",
+    "benefits": [
+      "Aroma mewah dan elegan",
+      "Tahan seharian",
+      "Cocok pria & wanita",
+      "Tidak menyengat",
+      "Dapat travel size"
+    ],
+    "isFlashSale": true,
+    "saleDuration": 20,
+    "script_suggestion": "Parfum premium yang aromanya mirip brand terkenal! Tahan 24 jam, cocok untuk sehari-hari atau acara formal. Dapat travel size juga loh! Normal 349ribu, flash sale 20 menit cuma 199ribu!"
+  },
+  {
+    "name": "Kemeja Formal Pria - Premium Cotton",
+    "price": 199000,
+    "promoPrice": 129000,
+    "stock": 120,
+    "category": "fashion",
+    "description": "100% katun, anti-kusut, slim fit, tersedia S-XXL, warna: putih, biru, hitam",
+    "benefits": [
+      "Bahan premium katun",
+      "Nyaman dipakai",
+      "Model slim fit",
+      "Tidak mudah kusut",
+      "Cocok untuk kerja"
+    ],
+    "isFlashSale": false,
+    "script_suggestion": "Kemeja berkualitas untuk ke kantor atau acara formal. Bahannya katun premium, nyaman dan tidak mudah kusut. Size lengkap S sampai XXL. Harga promo 129ribu dari 199ribu!"
+  },
+  {
+    "name": "Tas Selempang Wanita - Korean Style",
+    "price": 159000,
+    "promoPrice": 89000,
+    "stock": 150,
+    "category": "fashion",
+    "description": "Design Korea terbaru, bahan kulit PU premium, banyak sekat, tali adjustable",
+    "benefits": [
+      "Design trendy Korea",
+      "Bahan berkualitas",
+      "Kapasitas besar",
+      "Praktis dan stylish",
+      "Cocok daily use"
+    ],
+    "isFlashSale": true,
+    "saleDuration": 12,
+    "script_suggestion": "Tas selempang Korean style yang lagi hits! Bahannya kulit PU premium, banyak sekat, muat banyak barang. Perfect untuk daily use. Flash sale 12 menit, dari 159ribu jadi 89ribu aja!"
+  },
+  {
+    "name": "Smartwatch Sports - Fitness Tracker",
+    "price": 499000,
+    "promoPrice": 299000,
+    "stock": 60,
+    "category": "electronics",
+    "description": "Monitor detak jantung, kalori, tidur, waterproof, battery 7 hari, kompatibel iOS & Android",
+    "benefits": [
+      "Track aktivitas lengkap",
+      "Monitor kesehatan",
+      "Tahan air",
+      "Baterai awet",
+      "Notifikasi HP"
+    ],
+    "isFlashSale": true,
+    "saleDuration": 15,
+    "script_suggestion": "Smartwatch yang cocok buat kamu yang aktif! Monitor detak jantung, kalori, tidur semua lengkap. Waterproof dan baterai tahan seminggu. Harga normal 499ribu, flash sale 15 menit cuma 299ribu!"
+  },
+  {
+    "name": "Kopi Arabica Premium - 100gr",
+    "price": 79000,
+    "promoPrice": 49000,
+    "stock": 200,
+    "category": "food",
+    "description": "Single origin Aceh Gayo, roasting medium, aroma kuat, rasa smooth, packed fresh",
+    "benefits": [
+      "Kopi premium Gayo",
+      "Aroma harum kuat",
+      "Rasa tidak pahit",
+      "Fresh roasted",
+      "Cocok manual brew"
+    ],
+    "isFlashSale": false,
+    "script_suggestion": "Pecinta kopi wajib punya! Arabica Gayo yang premium banget. Aromanya harum, rasanya smooth tidak pahit. Roasting fresh setiap minggu. Cuma 49ribu untuk 100gr!"
+  },
+  {
+    "name": "Minyak Rambut Natural - Hair Growth Serum",
+    "price": 129000,
+    "promoPrice": 69000,
+    "stock": 180,
+    "category": "skincare",
+    "description": "Menumbuhkan rambut rontok, menebalkan, bahan alami, aman untuk bumil, aroma natural",
+    "benefits": [
+      "Mengatasi rontok",
+      "Menebalkan rambut",
+      "Rambut tumbuh cepat",
+      "100% alami",
+      "Aman untuk ibu hamil"
+    ],
+    "isFlashSale": false,
+    "script_suggestion": "Rambut rontok parah? Ini solusinya! Serum alami yang bikin rambut tebal dan tumbuh cepat. 100% bahan alami, aman bahkan untuk bumil. Harga promo 69ribu!"
+  }
+]
+

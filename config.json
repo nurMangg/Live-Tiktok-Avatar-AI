@@ -1,0 +1,71 @@
+{
+  "app": {
+    "name": "TikTok Live AI Avatar",
+    "version": "1.0.0",
+    "description": "Live streaming TikTok dengan AI Avatar"
+  },
+  "server": {
+    "node_port": 3000,
+    "python_port": 5000,
+    "host": "localhost"
+  },
+  "streaming": {
+    "default_quality": "720p",
+    "default_bitrate": 2500,
+    "default_fps": 30,
+    "max_duration": 14400,
+    "qualities": {
+      "1080p": {
+        "width": 1920,
+        "height": 1080,
+        "bitrate": 4000
+      },
+      "720p": {
+        "width": 1280,
+        "height": 720,
+        "bitrate": 2500
+      },
+      "480p": {
+        "width": 854,
+        "height": 480,
+        "bitrate": 1500
+      }
+    }
+  },
+  "avatar": {
+    "default_type": "default",
+    "gesture_intensity": 50,
+    "supported_formats": ["jpg", "jpeg", "png", "gif", "mp4", "webm"],
+    "max_file_size": 10485760
+  },
+  "voice": {
+    "default_type": "female-1",
+    "default_speed": 1.0,
+    "default_pitch": 0,
+    "speed_range": {
+      "min": 0.5,
+      "max": 2.0
+    },
+    "pitch_range": {
+      "min": -10,
+      "max": 10
+    }
+  },
+  "features": {
+    "auto_greeting": true,
+    "auto_thank_gift": true,
+    "auto_moderation": false,
+    "chat_queue": true,
+    "screen_share": true,
+    "background_blur": true
+  },
+  "tiktok": {
+    "api_version": "v1.3",
+    "scopes": [
+      "user.info.basic",
+      "video.upload",
+      "live.room.manage"
+    ]
+  }
+}
+
